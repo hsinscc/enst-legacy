@@ -1,0 +1,19 @@
+<% include ../partials/header %>
+  <link rel="stylesheet" type="text/css" href="/css/inputfile.css" />
+  <div class="container">
+    <div class="row">
+      <form id="form" class="col s12 m6 offset-m3" action="/photos/<%= photo._id %>?_method=PUT" method="POST">
+        <div class="input-field col s12">
+          <input id="name" type="text" name="photo[name]" class="validate" value="<%= photo.name %>">
+          <label for="name">Photo name</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="description" type="text" name="photo[description]" class="validate" value="<%= photo.description %>">
+          <label for="description">Photo description</label>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Edit "<%= photo.name %>"!</button>
+      </form>
+    </div>
+  </div>
+
+<% include ../partials/footer %>

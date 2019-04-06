@@ -1,0 +1,27 @@
+<div id="photo-grid" class="col s12 m6 offset-m3 l6 offset-l3">
+
+    <!-- Photo Style -->
+    <div class="card">
+  
+      <!-- Photo Content -->
+      <div id="photo" class="card-image waves-effect">
+        <a href="/photos/<%= photo._id %>"><img class="activator" src="<%= photo.image %>"></a>
+      </div>
+      <div class="card-content">
+        <strong><a href="/users/<%= photo.author.username %>">@<%= photo.author.username %></a></strong>
+        <span class=><em><%= photo.name %></em></i></span> - 
+        <%= photo.description %>
+  
+        <!-- Comment Area -->
+        
+      </div>
+  
+      <br>
+      <br>
+      
+      <div class="container">
+      <% include ./comments %>
+      <% include ./add_comment %>
+    </div>
+    </div>
+  </div>

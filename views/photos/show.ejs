@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+
+  <div class="row">
+    <% include ../partials/photos %>
+  </div>
+
+  <!-- Fixed Action Button -->
+  <% if (currentUser && photo.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large blue">
+        <i class="large material-icons">menu</i>
+      </a>
+      <ul>
+        <li><a href="/photos/<%= photo._id %>/edit" class="btn-floating green"><i class="material-icons">edit</i></a></li>
+        <li>
+          <form action="/photos/<%= photo._id %>?_method=DELETE" method="POST">
+            <button class="btn-floating red"><i class="material-icons">delete</i></button>
+          </form>
+        </li>
+        <li><a class="btn-floating yellow" href="/photos/<%= photo._id %>/comments/new"><i class="material-icons">add</i></a></li>
+      </ul>
+    </div>
+  <% } else { %>
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large blue" href="/photos/<%= photo._id %>/comments/new">
+        <i class="large material-icons">add</i>
+      </a>
+    </div>
+  <% } %>
+
+<% include ../partials/footer %>

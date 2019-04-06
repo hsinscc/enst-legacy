@@ -1,0 +1,123 @@
+.alert {
+  text-align: center;
+  padding-top: 5vh;
+}
+
+.error {
+  color: #D0104C;
+}
+
+.success {
+  color: #00896C;
+}
+
+#form {
+  padding-top: 3vh;
+  text-align: center;
+}
+
+#menu {
+  position: relative;
+  float: right;
+}
+
+/* Delete button of comments */
+#delete-form {
+  display: inline;
+}
+
+#delete-btn {
+  position: relative;
+  float: right;
+  left: 20px;
+  font-size: 16px;
+  line-height: 22px;
+  border: none;
+  background: none;
+}
+
+@media only screen and (max-width: 610px) {
+  #photo-grid {
+    width: 100%;
+  }
+  #photo-grid {
+    padding: 0rem;
+  }
+}
+
+/*------------------*/
+/* photos index.ejs */
+/*------------------*/
+
+#photo {
+  display: block;
+}
+
+#add-comment-row {
+  margin-bottom: 0px;
+}
+
+#comment-row {
+  margin: 0;
+}
+
+.card .card-content {
+  padding-bottom: 0px;
+}
+
+.card .material-icons {
+  cursor: pointer;
+}
+
+/************/
+/* Comments */
+/************/
+.grey-text.text-lighten-1 {
+  font-size: 12px;
+}
+
+.collapsible {
+  margin: 0;
+}
+
+.collapsible-header {
+  display: block;
+}
+
+.collapsible-body {
+  padding: 1.5rem;
+}
+
+.input-field {
+  margin-bottom: 0;
+}
+
+/*-----------------*/
+/* users show.ejs */
+/*-----------------*/
+#avatar-card {
+  padding-top: 10px;
+}
+
+#avatar-tag {
+  display: block;
+  margin: 2vh auto;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  background-position: top center;
+  border-radius: 50%;
+}
+
+#username-tag {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+@media only screen and (min-width: 993px) {
+  .container {
+    width: 95%;
+  }
+}

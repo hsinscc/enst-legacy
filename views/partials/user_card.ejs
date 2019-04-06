@@ -1,0 +1,14 @@
+<div id="photo-grid" class="col s12 m8 offset-m2">
+  <div id="avatar-card" class="card">
+    <a href="/users/<%= user.username %>/"><img id="avatar-tag" src="<%= user.avatar %>" class="circle responsive-img"></a>
+    <span id="username-tag">@<%= user.username %></span>
+    <div class="card-content small">
+      <p><a href="mailto:<%= user.email %>"><i class="material-icons left">mail</i><%= user.email %></a></p>
+      <br>
+      <% if (user.saying && user.saying.length > 0) { %>
+        <p><i class="material-icons left">insert_emoticon</i><%= user.saying %></p>
+        <br>
+      <% } %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+
+  <div id="photo-grid" class="container">
+    <div class="row">
+      <% include ../partials/user_card %>
+    </div>
+  </div>
+
+  <div id="photo-grid" class="container">
+    <div class="row">
+      <% photos.forEach(function(photo) { %>
+        <% include ../partials/photo %>
+      <% }); %>
+    </div>
+  </div>
+
+  <% if (currentUser && currentUser.username === user.username || currentUser && currentUser.isAdmin) { %>
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large blue">
+        <i class="large material-icons">menu</i>
+      </a>
+      <ul>
+        <li><a href="/users/<%= user.username %>/edit" class="btn-floating green"><i class="material-icons">edit</i></a></li>
+        <li>
+          <form action="/users/<%= user.username %>?_method=DELETE" method="POST">
+            <button class="btn-floating red"><i class="material-icons">delete</i></button>
+          </form>
+        </li>
+      </ul>
+    </div>
+  <% } %>
+
+<% include ../partials/footer %>

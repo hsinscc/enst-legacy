@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Enstagram</title>
+    <link rel="icon" type="image/png" href="/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+    <link rel="apple-touch-icon" type="image/png" href="/favicon.png"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <body>
+
+  <!-- Navbar config -->
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper blue-grey">
+        <a href="/photos" class="brand-logo center"><i class="material-icons left">image</i>Enstagram</a>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <% if (!currentUser) { %>
+            <li><a href="/register"><i class="material-icons left">group_add</i>Sign up</a></li>
+            <li><a href="/login"><i class="material-icons left">arrow_forward</i>Login</a></li>
+          <% } else { %>
+            <li><a href="/users/<%= currentUser.username %>"><strong><%= currentUser.username %></strong></a></li>
+            <li><a href="/users/<%= currentUser.username %>/edit"><i class="material-icons left">edit</i>Edit profile</a></li>
+            <li><a href="/forgot"><i class="material-icons left">lock_open</i>Reset password</a></li>
+            <li><a href="/logout"><i class="material-icons left">exit_to_app</i>Sign out</a></li>
+          <% } %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Sidebar config -->  
+  <ul id="slide-out" class="sidenav">
+    <% if (!currentUser) { %>
+      <li>
+        <div class="row">
+          <div class="col s12 m12">
+            <div class="card">
+              <div class="card-image">
+                <img src="https://i.imgur.com/BUxvahU.jpg">
+                <span class="card-title">Enstagram Inc.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li><a href="/photos" class="brand-logo"><i class="material-icons left">image</i>View all photos</a></li>
+      <li><a href="/register"><i class="material-icons left">group_add</i>Sign up</a></li>
+      <li><a href="/login"><i class="material-icons left">arrow_forward</i>Login</a></li>
+    <% } else { %>
+      <li>
+        <div class="row">
+          <div class="col s12 m12">
+            <div class="card">
+              <div class="card-image">
+                <img src="https://i.imgur.com/NEDO4ia.png">
+                <span class="card-title">Hi, <%= currentUser.username %></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li><a href="/users/<%= currentUser.username %>"><i class="material-icons left">person</i>My profile</a></li>
+      <li><a href="/users/<%= currentUser.username %>/edit"><i class="material-icons left">edit</i>Edit profile</a></li>
+      <li><a href="/forgot"><i class="material-icons left">lock_open</i>Reset password</a></li>
+      <li><a href="/logout"><i class="material-icons left">exit_to_app</i>Sign out</a></li>
+    <% } %>
+  </ul>
+  
+
+  <div class="container">
+    <div class="row">
+      <% if (error && error.length > 0) { %>
+        <div class="error alert">
+          <h5><%= error %></h5>
+        </div>
+      <% } %>
+      <% if (success && success.length > 0) { %>
+        <div class="success alert">
+          <h5><%= success %></h5>
+        </div>
+      <% } %>
+    </div>
+  </div>
+  

@@ -1,0 +1,33 @@
+<div id="photo-grid" class="col s12 m6 offset-m3 l6 offset-l3">
+
+  <!-- Photo Style -->
+  <div class="card">
+
+    <!-- Photo Content -->
+    <div id="photo" class="card-image waves-effect">
+      <a href="/photos/<%= photo._id %>"><img class="activator" src="<%= photo.image %>"></a>
+    </div>
+    <div class="card-content">
+      <strong><a href="/users/<%= photo.author.username %>">@<%= photo.author.username %></a></strong>
+      <span class="activator"><em><%= photo.name %></em><i class="material-icons right">expand_less</i></span> - 
+      <%= photo.description.substring(0, 100) %>...<span class="grey-text"> more</span>
+
+      <% include ./add_comment %>
+    </div>
+
+    <!-- Card Reveal -->
+    <div class="card-reveal">
+
+      <!-- Photo Name and Description -->
+      <span class="card-title grey-text text-darken-4"><%= photo.name %><i class="material-icons right">close</i></span>
+      <strong><a href="/users/<%= photo.author.username %>">@<%= photo.author.username %></a></strong>
+      <%= photo.description %>
+
+      <br>
+      <br>
+
+      <% include ./comments %>
+
+    </div>
+  </div>
+</div>

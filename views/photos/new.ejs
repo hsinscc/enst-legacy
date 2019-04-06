@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+
+  <link rel="stylesheet" type="text/css" href="/css/inputfile.css" />
+  <div class="container">
+    <div class="row">
+      <form id="form" class="col s12 m6 offset-m3" action="/photos" method="POST" enctype="multipart/form-data">
+        <div class="box">
+          <input id="image" type="file" name="image" accept="image/*" class="validate inputfile" required>
+          <label for="image"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Choose a file&hellip;</span></label>
+        </div>
+        <div class="input-field col s12">
+          <input id="text" type="text" name="photo[name]" class="validate">
+          <label for="text">Photo name</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="description" type="text" name="photo[description]" class="validate">
+          <label for="description">Photo description</label>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Add a new photo!</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/inputfile.js"></script>
+<% include ../partials/footer %>
